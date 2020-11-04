@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ExampleComponent } from '@ramonak/react-button-group'
+import { ButtonGroup } from '@ramonak/react-button-group'
 import '@ramonak/react-button-group/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <ButtonGroup buttons={["One", "Two", "Three", "Four"]}/>
 }
 
 export default App
