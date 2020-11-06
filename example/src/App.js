@@ -7,11 +7,7 @@ import '@ramonak/react-button-group/dist/index.css';
 const App = () => {
   return (
     <div className='wrapper'>
-      <ButtonGroup
-        buttons={['One', 'Two', 'Three', 'Four']}
-        // orientation='vertical'
-        
-      />
+      <ButtonGroup buttons={['One', 'Two', 'Three', 'Four']} />
     </div>
   );
 };

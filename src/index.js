@@ -6,7 +6,8 @@ export const ButtonGroup = ({
   buttons,
   orientation,
   buttonClassName,
-  containerClassName
+  containerClassName,
+  activeButtonClassName
 }) => {
   const [clickedId, setClickedId] = useState(-1);
 
@@ -14,6 +15,7 @@ export const ButtonGroup = ({
     setClickedId(id);
   };
 
+  const activeClass = activeButtonClassName || `${styles.active}`;
   const buttonClass = buttonClassName || `${styles.customButton}`;
   const containerClass =
     containerClassName ||
@@ -26,9 +28,7 @@ export const ButtonGroup = ({
           key={i}
           onClick={() => handleClick(i)}
           className={
-            i === clickedId
-              ? `${buttonClass} ${styles.active}`
-              : `${buttonClass}`
+            i === clickedId ? `${buttonClass} ${activeClass}` : `${buttonClass}`
           }
         >
           {e}
@@ -39,18 +39,13 @@ export const ButtonGroup = ({
 };
 
 ButtonGroup.propTypes = {
-  buttons: PropTypes.arrayOf(PropTypes.string),
-  orientation: PropTypes.oneOf(['horizontal', 'vertical'])
+  buttons: PropTypes.arrayOf(PropTypes.string).isRequired,
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
+  buttonClassName: PropTypes.string,
+  containerClassName: PropTypes.string,
+  activeButtonClassName: PropTypes.string
 };
 
 ButtonGroup.defaultProps = {
   orientation: 'horizontal'
 };
-
-// calculate save button classes
-// const saveButtonDefaultClasses = classnames(
-//   `${styles.Editext__button}`,
-//   `${styles.Editext__save_button}`,
-//   hideIcons && `${styles.Editext__hide_default_icons}`
-// )
-// const saveButtonClass = saveButtonClassName || saveButtonDefaultClasses
