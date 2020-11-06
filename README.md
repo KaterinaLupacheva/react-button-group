@@ -23,7 +23,14 @@ import React from 'react'
 import ButtonGroup from '@ramonak/react-button-group'
 
 const Example = () => {
-  return <ButtonGroup buttons={['One', 'Two', 'Three', 'Four']} />
+  const handleClick = (e) => {
+    console.log(e.target.name);
+  };
+
+  return <ButtonGroup
+            buttons={['One', 'Two', 'Three', 'Four']}
+            onButtonClick={handleClick}
+          />
 }
 ```
 
@@ -33,6 +40,7 @@ const Example = () => {
 | ---- | ---- | ------- | ----------- |
 | `buttons` (required) | `Array of strings` |  | Labels of buttons. For buttons without labels pass an array with empty strings. |
 | `orientation` | `string:` <br/>`horizontal, vertical` | `horizontal` | Orientation of button group: vertical or horizontal display |
+| `onButtonClick` | `function` |  | Function that runs on a button click |
 | `containerClassName` | `string` |  | Class name for custom styles of a wrapper *div* |
 | `buttonClassName` | `string` |  | Class name for custom styles of a button inside a button group |
 | `activeButtonClassName` | `string` |  | Class name for custom styles of an active (selected) button inside a button group |

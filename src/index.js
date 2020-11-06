@@ -7,13 +7,10 @@ export const ButtonGroup = ({
   orientation,
   buttonClassName,
   containerClassName,
-  activeButtonClassName
+  activeButtonClassName,
+  onButtonClick
 }) => {
   const [clickedId, setClickedId] = useState(-1);
-
-  const handleClick = (id) => {
-    setClickedId(id);
-  };
 
   const activeClass = activeButtonClassName || `${styles.active}`;
   const buttonClass = buttonClassName || `${styles.customButton}`;
@@ -26,7 +23,11 @@ export const ButtonGroup = ({
       {buttons.map((e, i) => (
         <button
           key={i}
-          onClick={() => handleClick(i)}
+          name={e}
+          onClick={(event) => {
+            setClickedId(i);
+            onButtonClick(event);
+          }}
           className={
             i === clickedId ? `${buttonClass} ${activeClass}` : `${buttonClass}`
           }
@@ -43,7 +44,8 @@ ButtonGroup.propTypes = {
   orientation: PropTypes.oneOf(['horizontal', 'vertical']),
   buttonClassName: PropTypes.string,
   containerClassName: PropTypes.string,
-  activeButtonClassName: PropTypes.string
+  activeButtonClassName: PropTypes.string,
+  onButtonClick: PropTypes.func
 };
 
 ButtonGroup.defaultProps = {
