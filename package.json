@@ -49,5 +49,14 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "button group",
+    "buttongroup",
+    "buttons",
+    "buttons with select"
+  ],
+  "dependencies": {}
 }
