@@ -1,11 +1,14 @@
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .vertical {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
 }
 
 .customButton {
@@ -18,7 +21,6 @@
   border: 1.5px solid #E0314B;
   border-radius: 5px;
   cursor: pointer;
-  margin: 35px;
 }
 
 .active{

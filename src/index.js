@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
+import PropTypes from 'prop-types';
 
-export const ButtonGroup = ({ buttons, orientation }) => {
+export const ButtonGroup = ({ buttons, orientation, buttonClassName }) => {
   const [clickedId, setClickedId] = useState(-1);
 
   const handleClick = (id) => {
     setClickedId(id);
   };
+
+  const buttonClass = buttonClassName || `${styles.customButton}`;
   return (
-    <div className={orientation === 'vertical' ? `${styles.vertical}` : `${styles.container}`}>
+    <div
+      className={
+        orientation === 'vertical'
+          ? `${styles.vertical}`
+          : `${styles.container}`
+      }
+    >
       {buttons.map((e, i) => (
         <button
           key={i}
           onClick={() => handleClick(i)}
           className={
             i === clickedId
-              ? `${styles.customButton} ${styles.active}`
-              : `${styles.customButton}`
+              ? `${buttonClass} ${styles.active}`
+              : `${buttonClass}`
           }
         >
           {e}
@@ -24,6 +33,15 @@ export const ButtonGroup = ({ buttons, orientation }) => {
       ))}
     </div>
   );
+};
+
+ButtonGroup.propTypes = {
+  buttons: PropTypes.arrayOf(PropTypes.string),
+  orientation: PropTypes.oneOf(['horizontal', 'vertical'])
+};
+
+ButtonGroup.defaultProps = {
+  orientation: 'horizontal'
 };
 
 // calculate save button classes
