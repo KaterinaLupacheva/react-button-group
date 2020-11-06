@@ -10,6 +10,7 @@ const App = () => {
       <ButtonGroup
         buttons={['One', 'Two', 'Three', 'Four']}
         // orientation='vertical'
+        
       />
     </div>
   );

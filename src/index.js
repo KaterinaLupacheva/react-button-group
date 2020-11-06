@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import styles from './styles.module.css';
 import PropTypes from 'prop-types';
 
-export const ButtonGroup = ({ buttons, orientation, buttonClassName }) => {
+export const ButtonGroup = ({
+  buttons,
+  orientation,
+  buttonClassName,
+  containerClassName
+}) => {
   const [clickedId, setClickedId] = useState(-1);
 
   const handleClick = (id) => {
@@ -10,14 +15,12 @@ export const ButtonGroup = ({ buttons, orientation, buttonClassName }) => {
   };
 
   const buttonClass = buttonClassName || `${styles.customButton}`;
+  const containerClass =
+    containerClassName ||
+    (orientation === 'vertical' ? `${styles.vertical}` : `${styles.container}`);
+
   return (
-    <div
-      className={
-        orientation === 'vertical'
-          ? `${styles.vertical}`
-          : `${styles.container}`
-      }
-    >
+    <div className={containerClass}>
       {buttons.map((e, i) => (
         <button
           key={i}
