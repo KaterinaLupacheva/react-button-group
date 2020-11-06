@@ -1,26 +1,30 @@
-import React, { useState } from 'react'
-import styles from './styles.module.css'
+import React, { useState } from 'react';
+import styles from './styles.module.css';
 
-export const ButtonGroup = ({ buttons }) => {
-  const [clickedId, setClickedId] = useState(-1)
+export const ButtonGroup = ({ buttons, orientation }) => {
+  const [clickedId, setClickedId] = useState(-1);
 
   const handleClick = (id) => {
-    setClickedId(id)
-  }
+    setClickedId(id);
+  };
   return (
-    <div className={styles.container}>
+    <div className={orientation === 'vertical' ? `${styles.vertical}` : `${styles.container}`}>
       {buttons.map((e, i) => (
         <button
           key={i}
           onClick={() => handleClick(i)}
-          className={i === clickedId ? `${styles.active}` : ''}
+          className={
+            i === clickedId
+              ? `${styles.customButton} ${styles.active}`
+              : `${styles.customButton}`
+          }
         >
           {e}
         </button>
       ))}
     </div>
-  )
-}
+  );
+};
 
 // calculate save button classes
 // const saveButtonDefaultClasses = classnames(
