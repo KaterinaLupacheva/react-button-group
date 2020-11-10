@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { ButtonGroup } from '@ramonak/react-button-group';
+import ButtonGroup from '@ramonak/react-button-group';
 import '@ramonak/react-button-group/dist/index.css';
 
 const App = () => {

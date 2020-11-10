@@ -21,6 +21,7 @@ npm install --save @ramonak/react-button-group
 ```jsx
 import React from 'react'
 import ButtonGroup from '@ramonak/react-button-group'
+import '@ramonak/react-button-group/dist/index.css';
 
 const Example = () => {
   const handleClick = (e) => {

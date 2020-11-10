@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './styles.module.css';
 import PropTypes from 'prop-types';
 
-export const ButtonGroup = ({
+const ButtonGroup = ({
   buttons,
   orientation,
   buttonClassName,
@@ -51,3 +51,5 @@ ButtonGroup.propTypes = {
 ButtonGroup.defaultProps = {
   orientation: 'horizontal'
 };
+
+export default ButtonGroup;
